@@ -1,0 +1,22 @@
+.banner {
+    background-color: #172554;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 0px
+}
+
+.banner nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h1 {
+    color: #f8fafc;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0;
+}

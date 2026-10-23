@@ -1,0 +1,22 @@
+.category-selection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.category-selection label {
+    color: #f8fafc;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.category-selection select {
+    padding: 0.65rem 1rem;
+    border: 1px solid #93c5fd;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #172554;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}

@@ -1,0 +1,19 @@
+.page-products h1 {
+    color: #172554;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 2rem 0;
+    letter-spacing: -0.5px;
+}
+
+.page-products .research-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.research-banner label {
+    margin-right: 20px;
+}
