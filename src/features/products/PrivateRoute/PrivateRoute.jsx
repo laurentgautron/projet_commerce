@@ -5,10 +5,11 @@ import { Navigate, Outlet } from "react-router"
 
 
 function PrivateRoute() {
-    const { isconnected } = useContext(CategoryContext)
+    const { isConnected } = useContext(CategoryContext)
+    console.log("private isconnected: ", isConnected)
 
     return (
-        isconnected ? <Outlet /> : <Navigate to="/connexion" />
+        isConnected ? <Outlet /> : <Navigate to="/connexion" />
     )
 }
 
