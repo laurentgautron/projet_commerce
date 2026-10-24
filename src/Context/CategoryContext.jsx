@@ -1,21 +1,16 @@
 import { createContext, useState, useEffect } from "react";
+import { checkAuth } from "../features/auth/utils";
 
 export const CategoryContext = createContext(null);
 
 function AppContext({children}) {
     const  [chosenCategory, setChosenCategory] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
-    const [articles, setArticles] = useState(
-        () =>{return JSON.parse(sessionStorage.getItem('basket')) || []}
-    );
+    const [articles, setArticles] = useState([]);
 
     const totalPrice = articles.length === 0 ? 0 : articles.reduce((sum, article) => sum + article.numbArticle * article.price, 0);
 
     const totalArticles = articles.length === 0 ? 0 : articles.reduce((sum, article) => sum + article.numbArticle, 0)
-
-    useEffect(() => {
-        localStorage.setItem('basket', JSON.stringify(articles));
-    }, [articles])
 
     function modifyCounter(id, price, operator) {
         const art = articles.find(article => article.id === id)
@@ -46,7 +41,7 @@ function AppContext({children}) {
         totalPrice,
         deleteArticle,
         isConnected,
-        setIsConnected
+        setIsConnected, 
     }
 
     return (

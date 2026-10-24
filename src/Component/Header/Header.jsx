@@ -9,10 +9,10 @@ import { NavLink } from "../NavLink/NavLink";
 
 function Header() {
     const { isConnected, setIsConnected } = useContext(CategoryContext);
-    const navigate = useNavigate()
-
+    console.log("connecté: ", isConnected)
+    
     function handleClick() {
-        sessionStorage.removeItem('fastStoreApi-token')
+        sessionStorage.removeItem('authRi7-token')
         setIsConnected(false)
     }
 
