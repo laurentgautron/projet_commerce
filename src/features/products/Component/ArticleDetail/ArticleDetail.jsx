@@ -27,11 +27,11 @@ function ArticleDetail() {
                 <div className="presentation">
                     <h2>{article.title}</h2>
                     <div className="detail">
-                        <img src={article.image} alt={article.title} />
                         <div>
-                            <p>{article.description}</p>
+                            <img src={article.image} alt={article.title} />
                             <p className="price">{article.price} €</p>
                         </div>
+                        <p>{article.description}</p>
                     </div>
                 </div>
                 <DivButtonsActions>
