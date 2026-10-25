@@ -30,7 +30,7 @@ function Articles() {
                     <tfoot>
                         <tr>
                             <th scope="row" colSpan="3">Total de la commande:</th>
-                            <td> {totalPrice} €</td>
+                            <td> {totalPrice.toFixed(2)} €</td>
                         </tr>
                     </tfoot>
                 </table>

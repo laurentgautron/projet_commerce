@@ -47,12 +47,17 @@ function PageProducts() {
                 </div>
                 <h1>Tous les produits {chosenCategory ? chosenCategory : null}</h1>
             </div>
-            {error && <p>{error}</p>}
-            {isLoading
-                ? <p>Chargement...</p>
-                : !error
-                    ? <section><ProductList productlist={productsByName ? productsByName : products} /></section>
-                    : null
+            { error
+                ? <p>{error}</p>
+                : isLoading
+                    ? <p>Chargement...</p>
+                    :<section>
+                        { productsByName && productsByName.length === 0 
+                            ? <p>Il n'existe pas de produits avec ce nom</p>
+                            :<ProductList productlist={productsByName ? productsByName : products} />
+                        }
+                </section>
+                   
             }
         </div>
     )

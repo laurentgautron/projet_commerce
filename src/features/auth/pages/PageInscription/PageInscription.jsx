@@ -1,12 +1,13 @@
 import "./PageInscription.css";
 import InscriptionForm from "../../Component/InscriptionForm/InscriptionForm";
+import { PageForm } from "../../../../Component/PageForm/PageForm";
 
 function PageInscription() {
   return (
-    <div>
-        <h1>Formulaire Incsription au site</h1>
+    <PageForm>
+        <h1>Formulaire d'incsription au site</h1>
         <InscriptionForm />
-    </div>
+    </PageForm>
   )
 }
 

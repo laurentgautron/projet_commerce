@@ -46,3 +46,10 @@ export async function addProduct(articleInfos, method) {
     const result = await response.json()
     return result
 }
+
+export async function deleteArticle(articleId) {
+    const response = await fetch(`${FakeStoreUrl}/products/${articleId}`, {
+        method: "DELETE",
+    })
+    return response
+}

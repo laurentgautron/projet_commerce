@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { CategoryContext } from "../../../../Context/CategoryContext";
 import DetailErrorMessage from "../DetailErrorMessage/DetailErrorMessage";
 import { loginApiAuthRi7 } from "../../utils";
+import { Form } from "../../../../Component/Form/Form";
 
 function ConnexionForm() {
     const [loginInfos, setLoginInfos] = useState({
@@ -36,8 +37,8 @@ function ConnexionForm() {
     }
 
     return (
-        <div>
-            <form method="POST" onSubmit={(ev) => handleSubmit(ev)}>
+        <div className="connexion-form">
+            <Form method="POST" onSubmit={(ev) => handleSubmit(ev)}>
                 <div className="email">
                     <label htmlFor="email">Email: </label>
                     <input type="email" name="email" value={loginInfos.email} id="email" onChange={(ev) => handleChange(ev)} />
@@ -47,7 +48,7 @@ function ConnexionForm() {
                     <input type="password" name="password" value={loginInfos.password} id="password" onChange={(ev) => handleChange(ev)} />
                 </div>
                 <button type="submit">Connexion</button>
-            </form>
+            </Form>
             <DetailErrorMessage errorInfos={errorInfos} />
         </div>
     )

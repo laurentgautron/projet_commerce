@@ -9,7 +9,7 @@ function AppContext({ children }) {
     const [articles, setArticles] = useState([]);
     const [finishAuth, setFinishAuth] = useState(false)
 
-    // verify if authenticate: for headers buttons, instead of onlt PrivateRoute
+    // verify if authenticate: for headers buttons, instead of only PrivateRoute
     useEffect(() => {
         setFinishAuth(false)
         checkAuth()

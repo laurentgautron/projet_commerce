@@ -10,12 +10,11 @@ function ShoppingBasket() {
 
     return (
         <div className="panier">
-            <h5>Panier:</h5>
             <Link className="shopcart" to="/basket">
-                <ShoppingCart size={60} color="#93c5fd" />
+                <ShoppingCart size={80} color="#93c5fd" />
                 <div className="bilan">
-                    <span> {totalArticles} Article{totalArticles > 1 ? 's' : null}</span>
-                    <span>{totalPrice} €</span>
+                    <span>{totalArticles}</span>
+                    <span>{totalPrice.toFixed(2)} €</span>
                 </div>
             </Link>
         </div>

@@ -1,13 +1,14 @@
 import "./PageConnexion.css";
 import ConnexionForm from "../../Component/ConnexionForm/ConnexionForm";
+import { PageForm } from "../../../../Component/PageForm/PageForm";
 
 
 function PageConnexion() {
   return (
-    <div>
+    <PageForm>
         <h1>Connectez-vous avec votre nom et votre mot de passe</h1>
         <ConnexionForm />
-    </div>
+    </PageForm>
   )
 }
 

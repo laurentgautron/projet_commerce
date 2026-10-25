@@ -1,0 +1,168 @@
+.articles {
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(23, 37, 84, 0.06);
+}
+
+.articles table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #172554;
+}
+
+.articles caption {
+    margin-bottom: 1.25rem;
+    color: #172554;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    text-align: left;
+}
+
+.articles thead th {
+    padding: 0.85rem 1rem;
+    background-color: #172554;
+    color: #f8fafc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #172554;
+}
+
+.articles thead th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.articles thead th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.articles tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.articles tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.articles tbody tr:hover {
+    background-color: #EAF0F8;
+}
+
+.articles tbody th,
+.articles tbody td {
+    padding: 0.85rem 00.8rem;
+    font-size: 0.95rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.articles tbody th {
+    color: #172554;
+    font-weight: 600;
+}
+
+.articles tbody td {
+    color: #172554;
+}
+
+.articles tbody td:nth-child(2),
+.articles tbody td:nth-child(4) {
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+
+.articles tbody td button {
+    padding: 0.4rem 0.7rem;
+    margin: 0 0.25rem;
+    background-color: #f8fafc;
+    color: #172554;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid #93c5fd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.articles tbody td button:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(23, 37, 84, 0.2);
+}
+
+.articles tbody td:last-child button {
+    padding: 0.5rem 0.9rem;
+    background-color: #172554;
+    color: #f8fafc;
+    border: 1px solid #172554;
+}
+
+.articles tbody td:last-child button:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+}
+
+.articles tfoot th,
+.articles tfoot td {
+    padding: 1rem;
+    color: #172554;
+    font-size: 1rem;
+    font-weight: 700;
+    border-top: 2px solid #172554;
+}
+
+.articles tfoot th {
+    text-align: right;
+}
+
+.articles tfoot td {
+    color: #1d4ed8;
+    font-size: 1.15rem;
+}
+
+.articles > p {
+    padding: 2rem 0;
+    color: #172554;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.articles > a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    background-color: #172554;
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid #172554;
+    border-radius: 8px;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.articles > a:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(23, 37, 84, 0.2);
+}

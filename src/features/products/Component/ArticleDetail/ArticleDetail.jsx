@@ -1,17 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { getArticle } from "../../utils";
 import "./ArticleDetail.css";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router";
 import BuyButton from "../../../../Component/BuyButton/BuyButton";
 import { CategoryContext } from "../../../../Context/CategoryContext";
-
+import { DivButtonsActions } from "../../../../Component/DivButtonsActions/DivButtonsActions";
 
 function ArticleDetail() {
     const { modifyCounter, isConnected } = useContext(CategoryContext)
     const [article, setArticle] = useState(null)
     const [error, setError] = useState(null)
     const { articleId } = useParams();
+    const navigate = useNavigate()
 
     useEffect(() => {
         getArticle(articleId)
@@ -22,16 +23,22 @@ function ArticleDetail() {
     return (
         article
             ? <div className="article-detail">
-
                 <h1>Détail de l'article:</h1>
-                <h2>{article.title}</h2>
-                <img src={article.image} alt={article.title} />
-                <p>{article.description}</p>
-                <div className="actions">
-                    <BuyButton articleId={articleId} price={article.price}>Ajouter au panier</BuyButton>
-                    <Link to="/">Retour à l'accueil</Link>
-                    {isConnected && <Link to={`/modify/${articleId}`}>Modifier l'article</Link>}
+                <div className="presentation">
+                    <h2>{article.title}</h2>
+                    <div className="detail">
+                        <img src={article.image} alt={article.title} />
+                        <div>
+                            <p>{article.description}</p>
+                            <p className="price">{article.price} €</p>
+                        </div>
+                    </div>
                 </div>
+                <DivButtonsActions>
+                    <BuyButton articleId={articleId} price={article.price}>Ajouter au panier</BuyButton>
+                    <button onClick={() => navigate('/')}>Retour à l'accueil</button>
+                    {isConnected && <button onClick={() => navigate(`/modify/${articleId}`)}>Modifier l'article</button>}
+                </DivButtonsActions>
             </div>
             : !error ? <p>Chargement</p> : <p>{error}</p>
     )

@@ -5,6 +5,7 @@ import { getArticle } from "../../utils";
 import ArticleForm from "../../Component/ArticleForm/ArticleForm";
 import { Link } from "react-router";
 import { modifyProduct } from "../../utils";
+import { PageForm } from "../../../../Component/PageForm/PageForm";
 
 function ModifyProductPage() {
     const { articleId } = useParams();
@@ -24,10 +25,10 @@ function ModifyProductPage() {
     }, [])
 
     return (
-        <div>
-            <Link>Retour à la page d'accueil</Link>
+        <PageForm>
+            <h1>Retour à la page d'accueil</h1>
             <ArticleForm articleInfos={article} method="PUT" actionFunction={modifyProduct}/>
-        </div>
+        </PageForm>
     )
 }
 

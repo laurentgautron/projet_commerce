@@ -18,13 +18,13 @@ function Article({ articleId, counter }) {
         article &&
         <tr className="articleCard">
             <th>{article.title}</th>
-            <td>{article.price}</td>
+            <td>{article.price} €</td>
             <td>
                 <button onClick={() => modifyBasket(articleId, article.price, "+")}>+</button>
                 {counter}
                 <button onClick={() => modifyBasket(articleId, article.price, "-")}>-</button>
             </td>
-            <td>{article.price * counter} €</td>
+            <td>{(article.price * counter).toFixed(2)} €</td>
             <td><button onClick={() => deleteArticle(articleId)}>Supprimer du panier</button></td>
         </tr>
 

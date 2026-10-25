@@ -1,8 +1,11 @@
 import "./ArticleForm.css";
-import { useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { modifyProduct } from "../../utils";
 import { Link, useNavigate } from "react-router";
-
+import { Form } from "../../../../Component/Form/Form";
+import { CategoryContext } from "../../../../Context/CategoryContext";
+import { deleteArticle } from "../../utils";
+import { DivButtonsActions } from "../../../../Component/DivButtonsActions/DivButtonsActions";
 
 function ArticleForm({ articleInfos, method, actionFunction }) {
     const [modifyForm, setModifyform] = useState({
@@ -29,16 +32,26 @@ function ArticleForm({ articleInfos, method, actionFunction }) {
     async function handleSubmit(ev) {
         ev.preventDefault()
         actionFunction(modifyForm, method)
-        .then((resp) => {
-            console.log("Réponse: (modification/ajout): ", resp)
-            navigate("/")
-        })
-        .catch(error => console.log("Erreur [ArticleForm]: ", error))
+            .then((resp) => {
+                console.log("Réponse: (modification/ajout): ", resp)
+                navigate("/")
+            })
+            .catch(error => console.log("Erreur [ArticleForm]: ", error))
+    }
+
+    function handleDelete() {
+        deleteArticle(articleInfos.id)
+        .then((response) => console.log(response))
+        .catch((error) => console.log(error))
+    }
+
+    function handleClick() {
+        navigate("/")
     }
 
     return (
-        <>
-            <form metho="PUT" onSubmit={(ev) => handleSubmit(ev)}>
+        <div>
+            <Form metho="PUT" id="article-form" onSubmit={(ev) => handleSubmit(ev)}>
                 <div className="identifiant">
                     <label htmlFor="title">Identifiant:</label>
                     <input type="number" name="id" id="idnetifiant" value={modifyForm.id} onChange={(ev) => handleChange(ev)} />
@@ -53,7 +66,7 @@ function ArticleForm({ articleInfos, method, actionFunction }) {
                 </div>
                 <div className="description">
                     <label htmlFor="description">Descritpion:</label>
-                    <input type="text" name="description" id="description" value={modifyForm.description} onChange={(ev) => handleChange(ev)} />
+                    <textarea row="5" col="30" name="description" value={modifyForm.description} onChange={(ev) => handleChange(ev)} />
                 </div>
                 <div className="category">
                     <label htmlFor="category">Catégorie:</label>
@@ -63,11 +76,13 @@ function ArticleForm({ articleInfos, method, actionFunction }) {
                     <label htmlFor="image">Image:</label>
                     <input type="text" name="image" id="image" value={modifyForm.image} onChange={(ev) => handleChange(ev)} />
                 </div>
-                <button type="submit">Soumettre</button>
-            </form>
-            {articleInfos && <button>Supprimer l'article</button>}
-            <Link to="/">Retour à la page d'accueil</Link>
-        </>
+            </Form>
+            <DivButtonsActions>
+                <button type="submit" form="article-form">Soumettre</button>
+                {articleInfos && <button onClick={()=>handleDelete()}>Supprimer l'article</button>}
+                <button onClick={() => handleClick()}>Retour à l'accueil</button>
+            </DivButtonsActions>
+        </div>
     )
 }
 

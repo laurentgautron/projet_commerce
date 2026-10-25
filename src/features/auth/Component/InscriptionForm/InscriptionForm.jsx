@@ -3,6 +3,7 @@ import "./InscriptionForm.css";
 import { useNavigate } from "react-router";
 import { registerApiAuthRi7 } from "../../utils";
 import DetailErrorMessage from "../DetailErrorMessage/DetailErrorMessage";
+import { Form } from "../../../../Component/Form/Form";
 
 function InscriptionForm() {
     const [registerInfos, setRegisterInfos] = useState({
@@ -33,7 +34,7 @@ function InscriptionForm() {
 
     return (
         <div>
-            <form metho="POST" onSubmit={(ev) => handleSubmit(ev)}>
+            <Form metho="POST" onSubmit={(ev) => handleSubmit(ev)}>
                 <div className="username">
                     <label htmlFor="username">Nom: </label>
                     <input type="text" name="username" id="username" value={registerInfos.username} onChange={(ev) => handleChange(ev)} />
@@ -43,11 +44,11 @@ function InscriptionForm() {
                     <input type="email" name="email" id="email" value={registerInfos.email} onChange={(ev) => handleChange(ev)} />
                 </div>
                 <div className="password">
-                    <label htmlFor="password">Mot de passe</label>
+                    <label htmlFor="password">Mot de passe:</label>
                     <input type="password" name="password" id="password" value={registerInfos.password} onChange={(ev) => handleChange(ev)} />
                 </div>
                 <button type="submit">Envoyer</button>
-            </form>
+            </Form>
             <DetailErrorMessage errorInfos={errorInfos} />
         </div>
     )
