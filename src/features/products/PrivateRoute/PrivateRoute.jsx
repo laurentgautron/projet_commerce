@@ -5,17 +5,9 @@ import { checkAuth } from "../../auth/utils"
 
 
 function PrivateRoute() {
-    const { isConnected, setIsConnected } = useContext(CategoryContext)
-    const [isloading, setIsloading] = useState(true)
+    const { isConnected, setIsConnected, finishAuth } = useContext(CategoryContext)
 
-    useEffect(() => {
-        checkAuth()
-            .then(() => setIsConnected(true))
-            .catch(() => setIsConnected(false))
-            .finally(() => setIsloading(false))
-    }, [])
-
-    if (isloading) return (<p>Chargment</p>)
+    if (!finishAuth) return (<p>Chargment</p>)
 
     return (
         isConnected ? <Outlet /> : <Navigate to="/connexion" />

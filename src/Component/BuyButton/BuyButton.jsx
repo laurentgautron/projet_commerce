@@ -4,10 +4,10 @@ import { CategoryContext } from "../../Context/CategoryContext";
 
 
 function BuyButton({articleId, price}) {
-    const { modifyCounter } = useContext(CategoryContext);
+    const { modifyBasket } = useContext(CategoryContext);
 
     return (
-        <button onClick={() => modifyCounter(articleId, price, "+")}>Ajouter au panier</button>
+        <button onClick={() => modifyBasket(articleId, price, "+")}>Ajouter au panier</button>
     )
 }
 

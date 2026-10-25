@@ -9,7 +9,6 @@ import { NavLink } from "../NavLink/NavLink";
 
 function Header() {
     const { isConnected, setIsConnected } = useContext(CategoryContext);
-    console.log("connecté: ", isConnected)
     
     function handleClick() {
         sessionStorage.removeItem('authRi7-token')

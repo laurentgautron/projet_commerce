@@ -16,7 +16,6 @@ export async function getProductByCategory(category) {
     const response = await fetch(`${FakeStoreUrl}/products`);
     const result = await response.json();
     const products = result.filter((prod) => prod.category === category);
-    console.log("by cat: ", products)
     return products;
 }
 

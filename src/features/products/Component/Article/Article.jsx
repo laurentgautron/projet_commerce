@@ -5,7 +5,7 @@ import { CategoryContext } from "../../../../Context/CategoryContext";
 
 
 function Article({ articleId, counter }) {
-    const { modifyCounter, deleteArticle } = useContext(CategoryContext);
+    const { modifyBasket, deleteArticle } = useContext(CategoryContext);
     const [article, setArticle] = useState(null);
 
     useEffect(() => {
@@ -20,9 +20,9 @@ function Article({ articleId, counter }) {
             <th>{article.title}</th>
             <td>{article.price}</td>
             <td>
-                <button onClick={() => modifyCounter(articleId, article.price, "+")}>+</button>
+                <button onClick={() => modifyBasket(articleId, article.price, "+")}>+</button>
                 {counter}
-                <button onClick={() => modifyCounter(articleId, article.price, "-")}>-</button>
+                <button onClick={() => modifyBasket(articleId, article.price, "-")}>-</button>
             </td>
             <td>{article.price * counter} €</td>
             <td><button onClick={() => deleteArticle(articleId)}>Supprimer du panier</button></td>
